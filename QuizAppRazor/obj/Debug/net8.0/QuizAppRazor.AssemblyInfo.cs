@@ -11,11 +11,10 @@
 using System;
 using System.Reflection;
 
-//[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuizAppRazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba579eba175f16322cecc56bedee50c0ba267d47")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuizAppRazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuizAppRazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

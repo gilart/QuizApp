@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\WSB ASP NET Projekt\\QuizApp\\QuizAppRazor\\QuizAppRazor.csproj": {}
+    "E:\\WSB ASP NET Projekt\\Git\\QuizApp\\QuizAppRazor\\QuizAppRazor.csproj": {}
   },
   "projects": {
-    "E:\\WSB ASP NET Projekt\\QuizApp\\QuizAppRazor\\QuizAppRazor.csproj": {
+    "E:\\WSB ASP NET Projekt\\Git\\QuizApp\\QuizAppRazor\\QuizAppRazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\WSB ASP NET Projekt\\QuizApp\\QuizAppRazor\\QuizAppRazor.csproj",
+        "projectUniqueName": "E:\\WSB ASP NET Projekt\\Git\\QuizApp\\QuizAppRazor\\QuizAppRazor.csproj",
         "projectName": "QuizAppRazor",
-        "projectPath": "E:\\WSB ASP NET Projekt\\QuizApp\\QuizAppRazor\\QuizAppRazor.csproj",
+        "projectPath": "E:\\WSB ASP NET Projekt\\Git\\QuizApp\\QuizAppRazor\\QuizAppRazor.csproj",
         "packagesPath": "C:\\Users\\kotar\\.nuget\\packages\\",
-        "outputPath": "E:\\WSB ASP NET Projekt\\QuizApp\\QuizAppRazor\\obj\\",
+        "outputPath": "E:\\WSB ASP NET Projekt\\Git\\QuizApp\\QuizAppRazor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
