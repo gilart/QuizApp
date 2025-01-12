@@ -1,0 +1,15 @@
+﻿@page
+@model QuizAppRazor.Pages.Play.ResultModel
+@{
+    ViewData["Title"] = "Wynik quizu";
+}
+
+<h2>Wynik quizu</h2>
+
+<p>
+    Poprawnie odpowiedziano na: @Model.Score / @Model.Total pytań.
+</p>
+
+<p>
+    <a asp-page="/Quizzes/Index" class="btn btn-secondary">Powrót do listy quizów</a>
+</p>

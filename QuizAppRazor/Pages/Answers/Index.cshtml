@@ -1,0 +1,36 @@
+﻿@page "{questionId:int}"
+@model QuizAppRazor.Pages.Answers.IndexModel
+@{
+    ViewData["Title"] = "Odpowiedzi do pytania";
+}
+
+<h2>Odpowiedzi do pytania: @Model.QuestionText</h2>
+
+<p>
+    <a asp-page="Create" asp-route-questionId="@Model.QuestionId" class="btn btn-primary">Dodaj odpowiedź</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Treść odpowiedzi</th>
+            <th>Poprawna?</th>
+            <th>Operacje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ans in Model.Answers)
+        {
+            <tr>
+                <td>@ans.Text</td>
+                <td>@(ans.IsCorrect ? "Tak" : "Nie")</td>
+                <td>
+                    <a asp-page="Edit" asp-route-id="@ans.Id" class="btn btn-warning">Edytuj</a>
+                    <a asp-page="Delete" asp-route-id="@ans.Id" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="/Questions/Index" asp-route-quizId="@Model.QuizId" class="btn btn-secondary">Powrót do pytań</a>

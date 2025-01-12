@@ -1,0 +1,21 @@
+﻿@page "{questionId:int}"
+@model QuizAppRazor.Pages.Answers.CreateModel
+@{
+    ViewData["Title"] = "Dodaj odpowiedź";
+}
+
+<h2>Dodaj odpowiedź do pytania: @Model.QuestionText</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Answer.Text"></label>
+        <input asp-for="Answer.Text" class="form-control" />
+        <span asp-validation-for="Answer.Text" class="text-danger"></span>
+    </div>
+    <div class="form-check">
+        <input asp-for="Answer.IsCorrect" class="form-check-input" />
+        <label asp-for="Answer.IsCorrect" class="form-check-label"></label>
+    </div>
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+    <a asp-page="Index" asp-route-questionId="@Model.QuestionId" class="btn btn-secondary">Powrót</a>
+</form>

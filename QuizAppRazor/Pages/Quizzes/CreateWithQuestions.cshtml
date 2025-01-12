@@ -1,0 +1,30 @@
+﻿@page
+@model QuizAppRazor.Pages.Quizzes.CreateWithQuestionsModel
+@{
+    ViewData["Title"] = "Utwórz Quiz z pytaniami";
+}
+
+<h2>Utwórz nowy Quiz z pytaniami</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="QuizVM.Title"></label>
+        <input asp-for="QuizVM.Title" class="form-control" />
+        <span asp-validation-for="QuizVM.Title" class="text-danger"></span>      
+    </div>
+    <div class="mb-3">
+        <label asp-for="QuizVM.Description"></label>
+        <textarea asp-for="QuizVM.Description" class="form-control" rows="5"></textarea>
+    </div>
+    <hr />
+
+    <button type="submit" asp-page-handler="AddQuestion" class="btn btn-info">
+        Dodaj pytanie
+    </button>
+    <button type="submit" asp-page-handler="Save" class="btn btn-primary">
+        Zapisz quiz
+    </button>
+    <a asp-page="Index" class="btn btn-secondary">Anuluj</a>
+</form>

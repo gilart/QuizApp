@@ -1,0 +1,22 @@
+﻿@page "{id:int}"
+@model QuizAppRazor.Pages.Quizzes.EditModel
+@{
+    ViewData["Title"] = "Edytuj Quiz";
+}
+
+<h2>Edytuj Quiz</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Quiz.Title"></label>
+        <input asp-for="Quiz.Title" class="form-control" />
+        <span asp-validation-for="Quiz.Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Quiz.Description"></label>
+        <textarea asp-for="Quiz.Description" class="form-control" rows="5"></textarea>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+    <a asp-page="Index" class="btn btn-secondary">Powrót</a>
+</form>

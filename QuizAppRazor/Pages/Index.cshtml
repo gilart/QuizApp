@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!-- HERO SECTION -->
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container py-5 text-center">
+        <h1 class="display-4 fw-bold">Witaj w QuizApp!</h1>
+        <p class="fs-5">Twórz, edytuj i rozwiązuj quizy z dowolnych dziedzin.</p>
+        <a asp-page="/Play/PlayRandom" class="btn btn-primary btn-lg me-2">
+            Rozwiąż losowy quiz
+        </a>
+        <a asp-page="/Quizzes/Create" class="btn btn-success btn-lg">
+            Utwórz quiz
+        </a>
+    </div>
+</div>
+
+<h2 class="mb-5 text-center">Najnowsze quizy</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var quiz in Model.TopQuizzes)
+    {
+        <div class="col">
+            <div class="card shadow-sm card-custom-height">
+                <div class="card-custom-height card-body d-flex flex-column justify-content-center align-items-center text-center">
+                    <h3 class="mb-3 card-title">@quiz.Title</h3>
+                    <p class="card-text text-muted">
+                        @(quiz.Description)
+                    </p>
+                    <p class="card-text text-muted">                        
+                        Ilość pytań: @(quiz.Questions?.Count ?? 0)
+                    </p>
+                  
+                    <a asp-page="/Play/Index"
+                       asp-route-quizId="@quiz.Id"
+                       class="mt-auto btn btn-primary">
+                        Rozwiaz quiz
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="text-center mt-4">
+    <a asp-page="/Quizzes/Index" class="btn btn-outline-primary">
+        Zobacz wszystkie quizy
+    </a>
+</div>

@@ -1,0 +1,35 @@
+﻿@page
+@model QuizAppRazor.Pages.Quizzes.IndexModel
+@{
+    ViewData["Title"] = "Lista quizów";
+}
+
+<h2>Quizy</h2>
+
+<p>
+    <a asp-page="/Quizzes/Create" class="btn btn-success btn-lg">
+        Utwórz quiz
+    </a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tytuł</th>
+            <th>Operacje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var quiz in Model.Quizzes)
+        {
+            <tr>
+                <td>@quiz.Title</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@quiz.Id" class="btn btn-info">Szczegóły</a>
+                    <a asp-page="Edit" asp-route-id="@quiz.Id" class="btn btn-warning">Edytuj</a>
+                    <a asp-page="Delete" asp-route-id="@quiz.Id" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

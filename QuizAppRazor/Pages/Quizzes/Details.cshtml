@@ -1,0 +1,51 @@
+﻿@page "{id:int}"
+@model QuizAppRazor.Pages.Quizzes.DetailsModel
+@{
+    ViewData["Title"] = "Szczegóły Quizu";
+}
+
+<h2 class="mb-3">@Model.Quiz.Title</h2>
+<h5 class="mb-3">@Model.Quiz.Description</h5>
+
+@if (Model.Quiz.Questions != null && Model.Quiz.Questions.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pytanie:</th>
+                <th>Operacje</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var question in Model.Quiz.Questions)
+            {
+                <tr>
+                    <td>@question.Text</td>
+                    <td>
+                        <a asp-page="/Questions/Edit" asp-route-id="@question.Id" class="btn btn-warning">Edytuj</a>
+                        <a asp-page="/Questions/Delete" asp-route-id="@question.Id" class="btn btn-danger">Usuń</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Brak pytań w tym quizie.</p>
+}
+<p>
+    <a asp-page="/Questions/Create" asp-route-quizId="@Model.Quiz.Id" class="btn btn-info">
+        Dodaj pytanie
+    </a>
+</p>
+
+<p>
+    <a asp-page="/Play/Index" asp-route-quizId="@Model.Quiz.Id" class="btn btn-success">
+        Rozwiąż quiz
+    </a>
+</p>
+
+<p>
+    <a asp-page="Index" class="btn btn-secondary">Powrót</a>
+</p>

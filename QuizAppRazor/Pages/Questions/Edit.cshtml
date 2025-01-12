@@ -1,0 +1,34 @@
+﻿@page "{id:int}"
+@model QuizAppRazor.Pages.Questions.EditModel
+@{
+    ViewData["Title"] = "Edytuj Pytanie";
+}
+
+<h2>Edytuj Quiz</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Question.Text"></label>
+        <input asp-for="Question.Text" class="form-control" />
+        <span asp-validation-for="Question.Text" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        @for (int i = 0; i < Model.Question.Answers.Count; i++)
+        {
+            <div class="col-md-6">
+                <label class="form-label">Answer @(i + 1) </label>
+                <div class="input-group">
+                    <input asp-for="Question.Answers[@i].Text" class="form-control" />
+                    <span class="input-group-text">
+                        <input asp-for="Question.Answers[@i].IsCorrect" type="checkbox" class="form-check-input" />
+                    </span>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button type="submit" asp-page-handler="Save" class="btn btn-primary">Zapisz</button>
+    <button type="submit" asp-page-handler="AddAnswer" class="btn btn-info">Dodaj Odpowiedź</button>
+    <a asp-page="/Quizzes/Details" asp-route-id="@Model.QuizId" class="btn btn-secondary">Powrót</a>
+</form>

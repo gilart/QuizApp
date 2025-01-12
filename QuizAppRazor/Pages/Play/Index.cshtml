@@ -1,0 +1,52 @@
+﻿@page "{quizId:int}"
+@model QuizAppRazor.Pages.Play.IndexModel
+@{
+    ViewData["Title"] = "Rozwiązywanie Quizu";
+}
+
+<h2 class="mb-3">Rozwiąż quiz: @Model.Quiz.Title</h2>
+
+@if (Model.Quiz.Questions?.Count != 0)
+{
+    <form class="mb-3" method="post">
+        <input type="hidden" asp-for="QuizId" />
+
+        @{
+            // Rzutujemy ICollection na List
+            var questionsList = Model.Quiz.Questions.ToList();
+        }
+
+        @for (int i = 0; i < Model.Quiz.Questions.Count; i++)
+        {
+            var question = questionsList[i];
+            <div class="mb-3 border p-2">
+                <strong>@question.Text</strong>
+                <input type="hidden" name="Questions[@i].QuestionId" value="@question.Id" />
+
+                @if (question.Answers != null)
+                {
+                    <ul class="list-unstyled">
+                        @for (int j = 0; j < question.Answers.Count; j++)
+                        {
+                            var ans = question.Answers.ElementAt(j);
+                            <li>
+                                <input type="checkbox"
+                                       name="Questions[@i].SelectedAnswers"
+                                       value="@ans.Id" />
+                                @ans.Text
+                            </li>
+                        }
+                    </ul>
+                }
+            </div>
+        }
+
+        <button type="submit" class="btn btn-success">Zatwierdź odpowiedzi</button>
+    </form>
+}
+else
+{
+    <p>Brak pytań w tym quizie.</p>
+}
+
+<a asp-page="/Quizzes/Index" class="btn btn-secondary">Powrót</a>
